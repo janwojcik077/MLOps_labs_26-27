@@ -13,6 +13,7 @@ dependencies = [
     "numpy>=2.5.3",
     "pre-commit>=4.6.2",
     "pydantic-settings>=2.15.0",
+    "pytest>=9.1.1",
     "python-dotenv>=1.2.4",
     "pyyaml>=6.0.3",
     "uvicorn>=0.54.0",
@@ -29,4 +30,5 @@ build-backend = "uv_build"
 dev = [
     "httpx>=0.28.1",
     "pytest>=9.1.1",
+    "pytest-dotenv>=0.5.2",
 ]
