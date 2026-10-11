@@ -4,13 +4,19 @@ from app import app
 client = TestClient(app)
 
 
-def test_welcome_root():
-    response = client.get("/")
+def test_predict_success():
+    response = client.post(
+        "/predict", json={"text": "What a great MLOps lecture, I am very satisfied"}
+    )
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to the ML API"}
+    assert response.json()["prediction"] in ["positive", "neutral", "negative"]
 
 
-def test_health_check():
-    response = client.get("/health")
-    assert response.status_code == 200
-    assert response.json() == {"status": "ok"}
+def test_predict_empty_text():
+    response = client.post("/predict", json={"text": ""})
+    assert response.status_code == 422
+
+
+def test_predict_invalid_payload():
+    response = client.post("/predict", json={"invalid_key": "some text"})
+    assert response.status_code == 422

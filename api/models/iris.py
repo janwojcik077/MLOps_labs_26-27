@@ -1,11 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class PredictRequest(BaseModel):
-    sepal_length: float
-    sepal_width: float
-    petal_length: float
-    petal_width: float
+    text: str = Field(..., min_length=1, description="Text cannot be empty")
 
 
 class PredictResponse(BaseModel):
