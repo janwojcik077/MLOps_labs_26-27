@@ -1,0 +1,29 @@
+[project]
+name = "lab4"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jan Wójcik", email = "jan.wojcik077@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=5.1.0",
+    "google-genai>=3.0.0",
+    "jupyterlab>=4.6.6",
+    "numpy>=2.5.4",
+    "pgvector>=0.5.1",
+    "psycopg>=3.3.8",
+    "pymilvus[milvus-lite]>=3.0.2",
+    "pymupdf>=2.1",
+    "python-dotenv>=1.2.4",
+    "sentence-transformers>=6.2.0",
+    "sqlalchemy>=2.1.8",
+]
+
+[project.scripts]
+lab4 = "lab4:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
